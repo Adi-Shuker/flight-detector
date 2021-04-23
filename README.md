@@ -42,7 +42,7 @@ To run it the user has to load two data files to the app:
 # Download
 
 Options to download the app: 
-- Clone the repository https://github.com/yairshp/FlightDetector.
+- Clone the repository https://github.com/Adi-Shuker/flight-detector.
 - Download the zip.
 
 # How to open FlightGear Application
