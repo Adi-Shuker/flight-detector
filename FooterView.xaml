@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="FlightDetector.FooterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FlightDetector"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+
+    <Border BorderBrush="Black" BorderThickness="0">
+        <Grid>
+            <Grid.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="5"></Setter>
+                </Style>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="5"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="5"/>
+            </Grid.ColumnDefinitions>
+            <Slider Grid.Row="1" Grid.Column="1" Minimum="0" Maximum="{Binding VM_MaxValueSlider}" x:Name="slider" Value ="{Binding VM_NextLine}"  IsSnapToTickEnabled="true" HorizontalAlignment="Left" VerticalAlignment="Top" Width="642" ValueChanged="slider_ValueChanged" />
+            <DockPanel Grid.Row="2" Grid.Column="1">
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button x:Name="playButton" Content="play" FontWeight="Bold" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Top" 
+                            Click="playButton_Click" 
+                            Height="25" Width="40" FontSize="14" RenderTransformOrigin="0.518,0.275"/>
+                    <Button x:Name="skipToTheStartButton" FontWeight="Bold" Content="skip to the start" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Top" Height="25" Width="110" FontSize="14" Click="skipToTheStartButton_Click"/>
+                    <Button x:Name="backButton" Content="back" FontWeight="Bold" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Top" Height="25" Width="40" FontSize="14" 
+                            RenderTransformOrigin="0.915,0.476" Click="backButton_Click"/>
+                    <Button x:Name="fastForwardButton" Content="fast forward" FontWeight="Bold" 
+                            HorizontalAlignment="Left" VerticalAlignment="Top" 
+                            Height="25" Width="94" FontSize="14" Click="fastForwardButton_Click"/>
+                    <Button x:Name="skipToTheEndButton" Content="skip to the end" FontWeight="Bold" 
+                            HorizontalAlignment="Left" VerticalAlignment="Top" 
+                            RenderTransformOrigin="1.194,0.967" Height="25" Width="109" FontSize="14" Click="skipToTheEndButton_Click"/>
+                    <Button x:Name="stopButton" Content="stop" FontWeight="Bold" 
+                            HorizontalAlignment="Left" VerticalAlignment="Top" 
+                            RenderTransformOrigin="0.06,0.579" Height="25" Width="40" FontSize="14" Click="stopButton_Click_1"/>
+                </StackPanel>
+
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Grid.Row="2" Grid.Column="1" Text="Playback Speed" 
+                               TextWrapping="Wrap" 
+                               VerticalAlignment="Center" 
+                               RenderTransformOrigin="0.477,-0.354" 
+                               Height="22" Width="121" FontSize="16" FontWeight="Bold"
+                               Margin="10"/>
+
+                    <ComboBox Grid.Row="2" Grid.Column="1" x:Name ="speeds" VerticalAlignment="Center" Width="120" SelectionChanged="ComboBox_SelectionChanged" IsEditable="True"
+                              IsReadOnly="True" Text="Normal">
+
+                        <ComboBoxItem Content="0.25"/>
+                        <ComboBoxItem Content="0.5"/>
+                        <ComboBoxItem Content="0.75"/>
+                        <ComboBoxItem Content="Normal"/>
+                        <ComboBoxItem Content="1.25"/>
+                        <ComboBoxItem Content="1.5"/>
+                        <ComboBoxItem Content="1.75"/>
+                        <ComboBoxItem Content="2"/>
+                    </ComboBox>
+
+                </StackPanel>
+
+                <ComboBox x:Name ="anomalies" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectedItem="{Binding VM_SelectedAnomaly}" IsEditable="True"
+                          IsReadOnly="True" Text="Anomalies" ItemsSource="{Binding Path= VM_AnomaliesList}">
+                </ComboBox>
+            </DockPanel>
+        </Grid>
+    </Border>
+
+</UserControl>

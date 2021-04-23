@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Platforms>AnyCPU;x86;x64</Platforms>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="images\background 1.jpg" />
+    <None Remove="images\background 2.jpg" />
+    <None Remove="images\background 3.jpg" />
+    <None Remove="images\clouds2.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MinCircleDll">
+      <HintPath>..\..\..\source\repos\MinCircle\Debug\MinCircleDll.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleAnomalyDetector">
+      <HintPath>..\..\..\source\repos\SimpleAnomalyDetector\Debug\SimpleAnomalyDetector.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\background 1.jpg" />
+    <Resource Include="images\background 2.jpg" />
+    <Resource Include="images\background 3.jpg" />
+    <Resource Include="images\clouds2.jpg" />
+  </ItemGroup>
+
+</Project>
