@@ -54,21 +54,6 @@ Because we want to use him differently in the command line in the setting tab  w
  --fdm=null
 and than press fly.
 
-# How to add DLL 
-If you want to use different Anomaly detector algorithm you will need to implement the next function:
-//constructor
-Create();
-//in this function we learn the normal behavior of the features.
-Int learnNormalFromCSV(StringBuilder CSVfileName);
-//this function get feature name and return the name of the most correlative feature to him.
-string GetMostCorrelativeFeature(string feature);
-//this function get name of feature and return the regression (it can be line\ //circle and so on)
-float[] GetLinearRegression(string feature);
-//this function get CSV file name and detect all the anomalies.
-int detectFromCSV(StringBuilder CSVfileName);
-//this function return all the time stamps that ware anomalies.
-int[] GetAllAnomaliesTimesStamps();
-
 # Usage
 Run the FlightGear and the Flight Detector app. <br>
 In the HomePage load your csv, xml and dll files and choose an anomaly detector type. <br>
